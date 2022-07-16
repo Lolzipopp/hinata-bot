@@ -42,6 +42,10 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  > ${prefix}runtime
  > ${prefix}cekprem
  > ${prefix}listprem
+ > ${prefix}jo
+ > ${prefix}simi
+ > ${prefix}groupriku
+ > ${prefix}delete
 
  *CONVERTER/TOOLS*
  > ${prefix}sticker
@@ -58,10 +62,31 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  > ${prefix}instagram
  > ${prefix}facebook
   
+ *PREMIUM USER*
+ > ${prefix}daftarprem
+ > ${prefix}masuk 
+ > ${prefix}leave
+ > ${prefix}cersex
+ > ${prefix}asupan
+ > ${prefix}xnxx
+ > ${prefix}hentai
+ > ${prefix}ahegao
+ > ${prefix}masturbation
+ > ${prefix}blowjob
+ > ${prefix}pussy
+ > ${prefix}ass
+ > ${prefix}bdsm
+ 
  *RANDOM MENU*
  > ${prefix}quote
  > ${prefix}cecan
  > ${prefix}cogan
+ > ${prefix}pantun
+ > ${prefix}katagalau
+ > ${prefix}gombal
+ > ${prefix}quotes
+ > ${prefix}meme
+ > ${prefix}darkjokes
   
  *SEARCH MENU*
  > ${prefix}lirik
@@ -71,7 +96,28 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  *GAME MENU*
  > ${prefix}tictactoe
  > ${prefix}delttc
+ > ${prefix}slot
+ > ${prefix}suit
  > ${prefix}tebakgambar
+ > ${prefix}tebakkimia
+ > ${prefix}tebakkata
+ > ${prefix}tekateki
+ > ${prefix}kuis
+ > ${prefix}apakah
+ > ${prefix}kapankah
+ > ${prefix}rate
+ > ${prefix}gantengcek
+ > ${prefix}cantikcek
+ > ${prefix}sangecek
+ > ${prefix}gaycek
+ > ${prefix}lesbicek
+ > ${prefix}gimana
+ > ${prefix}bisakah
+ > ${prefix}cekme
+ > ${prefix}dadu
+ > ${prefix}truth
+ > ${prefix}dare
+ > ${prefix}react
   
  *PAYMENT & BANK*
  > ${prefix}buylimit
@@ -87,6 +133,10 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  > ${prefix}setdesc
  > ${prefix}group
  > ${prefix}revoke
+ > ${prefix}promote
+ > ${prefix}demote
+ > ${prefix}kick 
+ > ${prefix}add
  > ${prefix}hidetag
   
  *OWNER MENU*
