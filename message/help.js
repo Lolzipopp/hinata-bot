@@ -81,6 +81,12 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  > ${prefix}quote
  > ${prefix}cecan
  > ${prefix}cogan
+ > ${prefix}loli
+ > ${prefix}naruto
+ > ${prefix}husbu
+ > ${prefix}waifu
+ > ${prefix}yaoi
+ > ${prefix}faktaunik
  > ${prefix}pantun
  > ${prefix}katagalau
  > ${prefix}gombal
@@ -138,11 +144,13 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  > ${prefix}kick 
  > ${prefix}add
  > ${prefix}hidetag
+ > ${prefix}tagall
   
  *OWNER MENU*
  > evalcode
  x evalcode-2
  $ executor
+ > ${prefix}sendvirtex
  > ${prefix}join
  > ${prefix}broadcast
  > ${prefix}setppbot
