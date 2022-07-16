@@ -585,6 +585,49 @@ _Yakin kamu mau daftar ke premium?_
 			       limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 		        break
+case prefix+'kick':
+    if (!isGroup) return reply(mess.OnlyGrup)
+    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+    var number;
+    if (mentioned.length !== 0) {
+      number = mentioned[0]
+      conn.groupParticipantsUpdate(from, [number], "remove")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else if (isQuotedMsg) {
+      number = quotedMsg.sender
+      conn.groupParticipantsUpdate(from, [number], "remove")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else {
+      reply(`Tag atau balas pesan member yang ingin dikeluarkan dari grup`)
+    }
+    break
+
+case prefix+'add':
+    if (!isGroup) return reply(mess.OnlyGrup)
+    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+    var number;
+    if (args[1]) {
+      number = mentioned[0]
+      var cek = await conn.onWhatsApp(number)
+      if (cek.length == 0) return reply(`Masukkan nomer yang valid dan terdaftar di WhatsApp`)
+      conn.groupParticipantsUpdate(from, [number], "add")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else if (isQuotedMsg) {
+      number = quotedMsg.sender
+      var cek = await conn.onWhatsApp(number)
+      if (cek.length == 0) return reply(`Member yang kamu balas pesannya sudah tidak terdaftar di WhatsApp`)
+      conn.groupParticipantsUpdate(from, [number], "add")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else {
+      reply(`Kirim perintah ${command} nomer atau balas pesan orang yang ingin dimasukkan kedalam grup`)
+    }
+    break
             case prefix+'play':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 if (args.length < 2) return reply(`Kirim perintah ${command} query\nContoh : ${command} monokrom`)
