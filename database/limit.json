@@ -245,7 +245,7 @@
   },
   {
     "id": "6289516949135@s.whatsapp.net",
-    "limit": 2
+    "limit": 1
   },
   {
     "id": "6285716373834@s.whatsapp.net",
@@ -257,7 +257,7 @@
   },
   {
     "id": "6281314782147@s.whatsapp.net",
-    "limit": 6
+    "limit": 4
   },
   {
     "id": "6289529302942@s.whatsapp.net",
@@ -269,7 +269,7 @@
   },
   {
     "id": "6282349278529@s.whatsapp.net",
-    "limit": 1
+    "limit": 2
   },
   {
     "id": "6289667920988@s.whatsapp.net",
@@ -277,7 +277,7 @@
   },
   {
     "id": "6285794766810@s.whatsapp.net",
-    "limit": 25
+    "limit": 33
   },
   {
     "id": "6288289910595@s.whatsapp.net",
@@ -285,23 +285,23 @@
   },
   {
     "id": "6285849467883@s.whatsapp.net",
-    "limit": 5
+    "limit": 6
   },
   {
     "id": "6282197408220@s.whatsapp.net",
-    "limit": 2
+    "limit": 12
   },
   {
     "id": "6289637898865@s.whatsapp.net",
-    "limit": 16
+    "limit": 33
   },
   {
     "id": "6287726207934@s.whatsapp.net",
-    "limit": 23
+    "limit": 37
   },
   {
     "id": "6281542125638@s.whatsapp.net",
-    "limit": 3
+    "limit": 6
   },
   {
     "id": "6289512906510@s.whatsapp.net",
@@ -309,7 +309,7 @@
   },
   {
     "id": "6285717128563@s.whatsapp.net",
-    "limit": 2
+    "limit": 13
   },
   {
     "id": "6285771899723@s.whatsapp.net",
@@ -329,7 +329,7 @@
   },
   {
     "id": "6281292817772@s.whatsapp.net",
-    "limit": 23
+    "limit": 50
   },
   {
     "id": "6285730745455@s.whatsapp.net",
@@ -345,7 +345,7 @@
   },
   {
     "id": "6285878772084@s.whatsapp.net",
-    "limit": 1
+    "limit": 40
   },
   {
     "id": "6287881181660@s.whatsapp.net",
@@ -353,23 +353,23 @@
   },
   {
     "id": "6281575761812@s.whatsapp.net",
-    "limit": 4
+    "limit": 18
   },
   {
     "id": "6281218674593@s.whatsapp.net",
-    "limit": 10
+    "limit": 17
   },
   {
     "id": "6283857960683@s.whatsapp.net",
-    "limit": 3
+    "limit": 4
   },
   {
     "id": "6282138403340@s.whatsapp.net",
-    "limit": 6
+    "limit": 21
   },
   {
     "id": "6289626012440@s.whatsapp.net",
-    "limit": 5
+    "limit": 40
   },
   {
     "id": "6285377874535@s.whatsapp.net",
@@ -384,7 +384,427 @@
     "limit": 1
   },
   {
-    "id": "6281212602519@s.whatsapp.net",
+    "id": "6285736420324@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6283102401455@s.whatsapp.net",
     "limit": 4
+  },
+  {
+    "id": "6288245275073@s.whatsapp.net",
+    "limit": 14
+  },
+  {
+    "id": "628998924757@s.whatsapp.net",
+    "limit": 9
+  },
+  {
+    "id": "6288744896752@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6285693483409@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "6282375694654@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6281213658338@s.whatsapp.net",
+    "limit": 19
+  },
+  {
+    "id": "6281649504798@s.whatsapp.net",
+    "limit": 0
+  },
+  {
+    "id": "6285692640490@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6281514652183@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6281343320402@s.whatsapp.net",
+    "limit": 7
+  },
+  {
+    "id": "62811557749@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6287883361867@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "628119313018@s.whatsapp.net",
+    "limit": 12
+  },
+  {
+    "id": "6285817723523@s.whatsapp.net",
+    "limit": 23
+  },
+  {
+    "id": "6282226772546@s.whatsapp.net",
+    "limit": 0
+  },
+  {
+    "id": "6285228010661@s.whatsapp.net",
+    "limit": 4
+  },
+  {
+    "id": "6287818997579@s.whatsapp.net",
+    "limit": 4
+  },
+  {
+    "id": "6282328749664@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6285524955146@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "62882007313249@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6289531862979@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6289513898706@s.whatsapp.net",
+    "limit": 23
+  },
+  {
+    "id": "6281461265971@s.whatsapp.net",
+    "limit": 17
+  },
+  {
+    "id": "6289514486070@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6285853609381@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "628986912500@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6287815255997@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "62895630194965@s.whatsapp.net",
+    "limit": 18
+  },
+  {
+    "id": "6288989817059@s.whatsapp.net",
+    "limit": 0
+  },
+  {
+    "id": "6281932668317@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6281375261629@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6282150891398@s.whatsapp.net",
+    "limit": 4
+  },
+  {
+    "id": "6283802366020@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6282195982032@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6282148750133@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6281382120684@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "60133613066@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6282210551441@s.whatsapp.net",
+    "limit": 0
+  },
+  {
+    "id": "6285846861308@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6281288090616@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "62881025070402@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6282147114239@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6285279090897@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6283128745400@s.whatsapp.net",
+    "limit": 15
+  },
+  {
+    "id": "6289652339157@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "6285719658396@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6281284920980@s.whatsapp.net",
+    "limit": 9
+  },
+  {
+    "id": "6289693278158@s.whatsapp.net",
+    "limit": 11
+  },
+  {
+    "id": "6289527540762@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6287797766306@s.whatsapp.net",
+    "limit": 7
+  },
+  {
+    "id": "6282184621884@s.whatsapp.net",
+    "limit": 11
+  },
+  {
+    "id": "6282250660838@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6285806577486@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6285243191396@s.whatsapp.net",
+    "limit": 4
+  },
+  {
+    "id": "6281267553279@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "62881026062042@s.whatsapp.net",
+    "limit": 15
+  },
+  {
+    "id": "6281290972542@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6281357284211@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6287884794859@s.whatsapp.net",
+    "limit": 0
+  },
+  {
+    "id": "62881027996122@s.whatsapp.net",
+    "limit": 12
+  },
+  {
+    "id": "6283114934486@s.whatsapp.net",
+    "limit": 0
+  },
+  {
+    "id": "6285359418464@s.whatsapp.net",
+    "limit": 15
+  },
+  {
+    "id": "6285738610831@s.whatsapp.net",
+    "limit": 14
+  },
+  {
+    "id": "6281901010142@s.whatsapp.net",
+    "limit": 32
+  },
+  {
+    "id": "6285781512191@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6285315032231@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6288804539256@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "6283198339455@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6281238530864@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6288225246160@s.whatsapp.net",
+    "limit": 12
+  },
+  {
+    "id": "6289670271938@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6282118275065@s.whatsapp.net",
+    "limit": 28
+  },
+  {
+    "id": "6281345954458@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "6282296733557@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6288298455853@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "601116101513@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6288213970329@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6282332627239@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6281320596146@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6282272501878@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6282140900423@s.whatsapp.net",
+    "limit": 9
+  },
+  {
+    "id": "6281352758089@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6289601191164@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "6289521008363@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6285281724437@s.whatsapp.net",
+    "limit": 7
+  },
+  {
+    "id": "62887436889481@s.whatsapp.net",
+    "limit": 16
+  },
+  {
+    "id": "6282352111934@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6283149720876@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6285346806059@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6281348731349@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6281344309802@s.whatsapp.net",
+    "limit": 3
+  },
+  {
+    "id": "6281267083988@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6282267403901@s.whatsapp.net",
+    "limit": 4
+  },
+  {
+    "id": "6282213650535@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6281254888231@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6283879446405@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6281319379883@s.whatsapp.net",
+    "limit": 6
+  },
+  {
+    "id": "6289612533915@s.whatsapp.net",
+    "limit": 7
+  },
+  {
+    "id": "6288809623430@s.whatsapp.net",
+    "limit": 2
+  },
+  {
+    "id": "6282147324064@s.whatsapp.net",
+    "limit": 10
+  },
+  {
+    "id": "6281311136460@s.whatsapp.net",
+    "limit": 5
+  },
+  {
+    "id": "6285710425266@s.whatsapp.net",
+    "limit": 1
+  },
+  {
+    "id": "6285777241810@s.whatsapp.net",
+    "limit": 19
+  },
+  {
+    "id": "6285852412366@s.whatsapp.net",
+    "limit": 3
   }
 ]
