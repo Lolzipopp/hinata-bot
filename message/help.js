@@ -158,5 +158,9 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
  > ${prefix}leave
  > ${prefix}addprem
  > ${prefix}delprem
+ Sewa Bot / Jadi Premium? 
+ketik .daftarprem
+atau chat owner untuk lebih lanjut
+dengan mengetik .owner
 `
 }
