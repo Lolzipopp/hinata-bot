@@ -628,6 +628,46 @@ case prefix+'add':
       reply(`Kirim perintah ${command} nomer atau balas pesan orang yang ingin dimasukkan kedalam grup`)
     }
     break
+      case prefix+'promote':
+  case prefix+'admin':
+    if (!isGroup) return reply(mess.OnlyGrup)
+    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+    var number;
+    if (mentioned.length !== 0) {
+      number = mentioned[0]
+      conn.groupParticipantsUpdate(from, [number], "promote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else if (isQuotedMsg) {
+      number = quotedMsg.sender
+      conn.groupParticipantsUpdate(from, [number], "promote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else {
+      reply(`Tag atau balas pesan member yang ingin dijadikan admin grup`)
+    }
+    break
+case prefix+'demote':
+  case prefix+'unadmin':
+    if (!isGroup) return reply(mess.OnlyGrup)
+    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+    var number;
+    if (mentioned.length !== 0) {
+      number = mentioned[0]
+      conn.groupParticipantsUpdate(from, [number], "demote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else if (isQuotedMsg) {
+      number = quotedMsg.sender
+      conn.groupParticipantsUpdate(from, [number], "demote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else {
+      reply(`Tag atau balas pesan admin yang ingin diturunkan menjadi member`)
+    }
+    break
             case prefix+'play':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 if (args.length < 2) return reply(`Kirim perintah ${command} query\nContoh : ${command} monokrom`)
