@@ -51,7 +51,8 @@ let mess = JSON.parse(fs.readFileSync('./message/response.json'));
 let premium = JSON.parse(fs.readFileSync('./database/premium.json'));
 let balance = JSON.parse(fs.readFileSync('./database/balance.json'));
 let limit = JSON.parse(fs.readFileSync('./database/limit.json'));
-let glimit = JSON.parse(fs.readFileSync('./database/glimit.json'));
+let glimit = JSON.parse(fs.readFileSync('./database/glimit.json'))
+let antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
 
 moment.tz.setDefault("Asia/Jakarta").locale("id");
 
@@ -96,7 +97,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 		const isGroupAdmins = groupAdmins.includes(sender)
 		const isUser = pendaftar.includes(sender)
 		const isPremium = isOwner ? true : _prem.checkPremiumUser(sender, premium)
-                const isWelcome = isGroup ? welcome.includes(from) ? true : false : false
+                const isAntiLink = isGroup ? antilink.includes(sender) : false
 
 		const gcounti = setting.gcount
 		const gcount = isPremium ? gcounti.prem : gcounti.user
@@ -228,7 +229,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 		
 		const buttonsDefault = [
 		    { urlButton: { displayText: `𝘐𝘕𝘚𝘛𝘈𝘎𝘙𝘈𝘔`, url : `https://www.instagram.com/tokoriku_` } },
-			{ callButton: { displayText: `𝘖𝘞𝘕𝘌𝘙`, url : `wa.me/6287873985625` } },
+			{ urlButton: { displayText: `𝘖𝘞𝘕𝘌𝘙`, url : `wa.me/6287873985625` } },
 			{ quickReplyButton: { displayText: `🧑 GroupRiku`, id: `${prefix}groupriku` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } }
 		]
@@ -333,6 +334,28 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 		  }
 		}
 
+if (chats.startsWith(`bot`)){
+ conn.sendMessage(from, { audio: fs.readFileSync('audio/jokeuwi.mp3'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith(`Bot`)){
+ conn.sendMessage(from, { audio: fs.readFileSync('audio/jokeuwi.mp3'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+
+if (chats.startsWith("@6287873985625")){
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("eh")){
+   conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("Eh")){
+   conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("Riku")){
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("woy")){
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
 		  const ev = (sul) => {
@@ -364,7 +387,14 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 		   reply(`${err}`)
 		 }
 		}
-		
+		if (isAntiLink) 
+if (chats.includes('https://chat.whatsapp.com')) {
+               if (!msg.key.fromMe) {
+               reply('Antilink\nKamu akan di kick')
+                number = sender
+               await conn.groupParticipantsUpdate(from, [number], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+               }
+	  }		
 		// Logs;
 		if (!isGroup && isCmd && !fromMe) {
 			addBalance(sender, randomNomor(20), balance)
@@ -379,6 +409,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 			// Main Menu
 			case prefix+'menu':
 			case prefix+'help':
+			conn.sendMessage(from, { react: { text: `👋`, key: msg.key }})
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    conn.sendMessage(from, { caption: teks, image: pp_bot, templateButtons: buttonsDefault, footer: `${setting.ownerName}`, mentions: [sender] })
 				break
@@ -585,7 +616,39 @@ _Yakin kamu mau daftar ke premium?_
 			       limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 		        break
-case prefix+'kick':
+            case prefix+'play':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+                if (args.length < 2) return reply(`Kirim perintah ${command} query\nContoh : ${command} monokrom`)
+                reply(mess.wait)
+                await sendPlay(from, q)
+				limitAdd(sender, limit)
+                break
+			case prefix+'ytmp4': case prefix+'mp4':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+			    if (!isUrl(args[1])) return reply(mess.error.Iv)
+			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
+			    reply(mess.wait)
+			    xfar.Youtube(args[1]).then( data => {
+			      var teks = `*Youtube Video Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[1].quality}\n*≻ Size :* ${data.medias[1].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
+			      conn.sendMessage(from, { video: { url: data.medias[1].url }, caption: teks }, { quoted: msg })
+			      limitAdd(sender, limit)
+				}).catch(() => reply(mess.error.api))
+			    break
+			case prefix+'ytmp3': case prefix+'mp3':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+			    if (!isUrl(args[1])) return reply(mess.error.Iv)
+			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
+			    reply(mess.wait)
+			    xfar.Youtube(args[1]).then( data => {
+			      var teks = `*Youtube Audio Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[7].quality}\n*≻ Size :* ${data.medias[7].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
+			      conn.sendMessage(from, { image: { url: data.thumbnail }, caption: teks }, { quoted: msg })
+			      conn.sendMessage(from, { document: { url: data.medias[7].url }, fileName: `${data.title}.mp3`, mimetype: 'audio/mp3' }, { quoted: msg })
+			      limitAdd(sender, limit)
+				}).catch(() => reply(mess.error.api))
+			    break
+			case prefix+'kick':
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -628,78 +691,6 @@ case prefix+'add':
       reply(`Kirim perintah ${command} nomer atau balas pesan orang yang ingin dimasukkan kedalam grup`)
     }
     break
-      case prefix+'promote':
-  case prefix+'admin':
-    if (!isGroup) return reply(mess.OnlyGrup)
-    if (!isGroupAdmins) return reply(mess.GrupAdmin)
-    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-    var number;
-    if (mentioned.length !== 0) {
-      number = mentioned[0]
-      conn.groupParticipantsUpdate(from, [number], "promote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else if (isQuotedMsg) {
-      number = quotedMsg.sender
-      conn.groupParticipantsUpdate(from, [number], "promote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else {
-      reply(`Tag atau balas pesan member yang ingin dijadikan admin grup`)
-    }
-    break
-case prefix+'demote':
-  case prefix+'unadmin':
-    if (!isGroup) return reply(mess.OnlyGrup)
-    if (!isGroupAdmins) return reply(mess.GrupAdmin)
-    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-    var number;
-    if (mentioned.length !== 0) {
-      number = mentioned[0]
-      conn.groupParticipantsUpdate(from, [number], "demote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else if (isQuotedMsg) {
-      number = quotedMsg.sender
-      conn.groupParticipantsUpdate(from, [number], "demote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else {
-      reply(`Tag atau balas pesan admin yang ingin diturunkan menjadi member`)
-    }
-    break
-            case prefix+'play':
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-                if (args.length < 2) return reply(`Kirim perintah ${command} query\nContoh : ${command} monokrom`)
-                reply(mess.wait)
-                await sendPlay(from, q)
-				limitAdd(sender, limit)
-                break
-			case prefix+'ytmp4': case prefix+'mp4':
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
-			    if (!isUrl(args[1])) return reply(mess.error.Iv)
-			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
-			    reply(mess.wait)
-			    xfar.Youtube(args[1]).then( data => {
-			      var teks = `*Youtube Video Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[1].quality}\n*≻ Size :* ${data.medias[1].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
-			      conn.sendMessage(from, { video: { url: data.medias[1].url }, caption: teks }, { quoted: msg })
-			      limitAdd(sender, limit)
-				}).catch(() => reply(mess.error.api))
-			    break
-			case prefix+'ytmp3': case prefix+'mp3':
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
-			    if (!isUrl(args[1])) return reply(mess.error.Iv)
-			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
-			    reply(mess.wait)
-			    xfar.Youtube(args[1]).then( data => {
-			      var teks = `*Youtube Audio Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[7].quality}\n*≻ Size :* ${data.medias[7].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
-			      conn.sendMessage(from, { image: { url: data.thumbnail }, caption: teks }, { quoted: msg })
-			      conn.sendMessage(from, { document: { url: data.medias[7].url }, fileName: `${data.title}.mp3`, mimetype: 'audio/mp3' }, { quoted: msg })
-			      limitAdd(sender, limit)
-				}).catch(() => reply(mess.error.api))
-			    break
 			case prefix+'getvideo': case prefix+'getvidio':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (!isQuotedImage) return reply(`Balas hasil pencarian dari ${prefix}ytsearch dengan teks ${command} <no urutan>`)
@@ -949,6 +940,12 @@ break
                 }
                 break
 			// Random Menu
+			case prefix+'say': case prefix+'tts':
+  if (args.length < 2) return reply(`Kirim perintah ${command} Text`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+   conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+limitAdd(sender, limit)
+   break
 			case prefix+'quote': case prefix+'quotes':
 			case prefix+'randomquote': case prefix+'randomquotes':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1028,6 +1025,52 @@ case prefix+'react':
 				conn.sendMessage(from, { caption: "Random Cowo Ganteng", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 			    limitAdd(sender, limit)
 				break
+				case prefix+'naruto':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				reply(mess.wait)
+			    var query = ["naruto hd","naruto boruto","naruto sasuke", "naruto aesthetic", "naruto aesthetic"]
+                var data = await pinterest(pickRandom(query))
+				var but = [{buttonId: `/naruto`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
+				conn.sendMessage(from, { caption: "Random Foto Naruto", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+			    limitAdd(sender, limit)
+ 			    break
+case prefix+'yaoi':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+
+				reply(mess.wait)
+			    var query = ["yaoi","yaoi aesthetic","yaoi hd","yaoi ganteng"]
+                var data = await pinterest(pickRandom(query))
+				var but = [{buttonId: `/${command}`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
+				conn.sendMessage(from, { caption: "Random Foto Yaoi", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+			    limitAdd(sender, limit)
+ 			    break
+case prefix+'loli':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				reply(mess.wait)
+			    var query = ["loli","loli chan","loli anime","loli hd","loli aesthetic"]
+                var data = await pinterest(pickRandom(query))
+				var but = [{buttonId: `/loli`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
+				conn.sendMessage(from, { caption: "Random Foto Loli Chan", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+			    limitAdd(sender, limit)
+ 			    break
+case prefix+'waifu':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				reply(mess.wait)
+			    var query = ["waifu","waifu aesthetic","waifu hd"]
+                var data = await pinterest(pickRandom(query))
+				var but = [{buttonId: `/waifu`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
+				conn.sendMessage(from, { caption: "Random Waifu", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+			    limitAdd(sender, limit)
+ 			    break
+case prefix+'husbu':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				reply(mess.wait)
+			    var query = ["husbu anime","husbu hd","husbu aesthetic"]
+                var data = await pinterest(pickRandom(query))
+				var but = [{buttonId: `/husbu`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
+				conn.sendMessage(from, { caption: "Random Husbu", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+			    limitAdd(sender, limit)
+ 			    break
 			// Search Menu
 			case prefix+'lirik': case 'liriklagu':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1401,6 +1444,7 @@ case prefix+'n':
   reply("Yah Maaf Ya kak:(")
   break
 			case prefix+'tictactoe': case prefix+'ttt': case prefix+'ttc':
+			if (!isOwner)return reply(`Fitur ini dinonaktifkan oleh owner karna eror saat digunakan`)
                 if (!isGroup)return reply(mess.OnlyGrup)
 			    if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
                 if (isTicTacToe(from, tictactoe)) return reply(`Masih ada game yg blum selesai`)
@@ -1534,25 +1578,37 @@ case prefix+'n':
 		        groupMembers.map( i => mem.push(i.id) )
 				conn.sendMessage(from, { text: q ? q : '', mentions: mem })
 			    break
-                        case prefix+'welcome':
-                            if (!isGroup) return reply(mess.OnlyGrup)
-                            if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
-                            if (args.length < 2) return reply(`Pilih enable atau disable`)
-                            if (args[1].toLowerCase() === "enable") {
-                              if (isWelcome) return reply(`Welcome sudah aktif`)
-                              welcome.push(from)
-                              fs.writeFileSync('./database/welcome.json', JSON.stringify(welcome, null, 2))
-                              reply(`Sukses mengaktifkan welcome di grup ini`)
-                            } else if (args[1].toLowerCase() === "disable") {
-                              if (!isWelcome) return reply(`Welcome sudah nonaktif`)
-                              var posi = welcome.indexOf(from)
-                              welcome.splice(posi, 1)
-                              fs.writeFileSync('./database/welcome.json', JSON.stringify(welcome, null, 2))
-                              reply(`Sukses menonaktifkan welcome di grup ini`)
-                            } else {
-                              reply(`Pilih enable atau disable`)
-                            }
-                            break
+                      case prefix+'tagall':
+      if (!isGroup) return reply(mess.OnlyGrup)
+      if (!isGroupAdmins) return reply(mess.GrupAdmin)
+      if (args.length < 2) return reply(`Kirim perintah ${command} teks`)
+     var mems = []
+      var teks = `*[ TAG ALL ]*\nPesan : ${q}\n\n`
+      for (let i of groupMembers) {
+        teks += `≻ @${i.id.split("@")[0]}\n`
+        mems.push(i.id)
+      }
+      conn.sendMessage(from, { text: teks, mentions: mems}, { quoted: msg })
+      break
+              case prefix+'faktaunik':
+  case prefix+'faktamenarik':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+     var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fakta-unik`)
+var caption = `Tahukah kamu?
+${data.result}`
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Fakta Unik" }, type: 1 }]
+conn.sendMessage(from, { text: caption, buttons: but, footer: "© Riku Bot", templateButtons: but }, {quoted: msg})
+limitAdd(sender, limit)
+break
+case prefix+'ppcp':
+case prefix+'ppcouple':
+  case prefix+'pp':
+var couple = JSON.parse(fs.readFileSync('./fitur/couple.json'))
+var hasil = pickRandom(couple)
+conn.sendMessage(from, {caption: `Cowo`, image: {url: hasil.male}}, {quoted: msg})
+conn.sendMessage(from, {caption: `Cewe`, image: {url: hasil.female}}, {quoted: msg})
+break 
+  break
 			// Bank & Payment Menu
 			case prefix+'topbalance':{
                 balance.sort((a, b) => (a.balance < b.balance) ? 1 : -1)
@@ -1622,7 +1678,6 @@ case prefix+'n':
 				break
 			default:
 			if (isGroup && isCmd) {
-				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
 				var but = [{buttonId: `/groupriku`, buttonText: { displayText: "GROUPRIKU" }, type: 1 }]
 conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^", buttons: but, footer: "Lihat Lebih Di Menu", templateButtons: but }, {quoted: msg})
 			}
