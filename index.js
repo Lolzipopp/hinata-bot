@@ -27,7 +27,7 @@ const time = moment(new Date()).format('HH:mm:ss DD/MM/YYYY')
 let setting = JSON.parse(fs.readFileSync('./config.json'));
 let session = `./${setting.sessionName}.json`
 const { state, saveState } = useSingleFileAuthState(session)
-let welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
+const { groupResponse } = require('./message/group.js')
 
 function title() {
       console.clear()
