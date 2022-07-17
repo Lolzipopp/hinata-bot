@@ -102,6 +102,23 @@ const connectToWhatsApp = async () => {
 		msg.isBaileys = msg.key.id.startsWith('BAE5') || msg.key.id.startsWith('3EB0')
 		require('./message/msg')(conn, msg, m, setting, store, welcome)
 	})
+	conn.ev.on('group-participants.update', async (update) =>{
+   groupResponse(conn, update)
+   console.log(update)
+   })         
+	
+conn.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
+        let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
+        let buffer
+        if (options && (options.packname || options.author)) {
+            buffer = await writeExifImg(buff, options)
+        } else {
+            buffer = await imageToWebp(buff)
+        }
+
+        await conn.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
+        return buffer
+    }               
 	conn.ev.on('connection.update', (update) => {
 		const { connection, lastDisconnect } = update
 		if (connection === 'close') {
@@ -116,28 +133,6 @@ const connectToWhatsApp = async () => {
 	})
 	conn.ev.on('creds.update', () => saveState)
 	
-        conn.ev.on('group-participants.update', async (data) => {
-          const isWelcome = welcome.includes(data.id) ? true : false
-          if (isWelcome) {
-            try {
-              for (let i of data.participants) {
-                try {
-                  var pp_user = await conn.profilePictureUrl(i, 'image')
-                } catch {
-                  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-                if (data.action == "add") {
-                  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Welcome @${i.split("@")[0]}`, mentions: [i] })
-                } else if (data.action == "remove") {
-                  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Sayonara @${i.split("@")[0]}`, mentions: [i] })
-                }
-              }
-            } catch (e) {
-              console.log(e)
-            }
-          }
-        })
-
 	conn.reply = (from, content, msg) => conn.sendMessage(from, { text: content }, { quoted: msg })
 
 	return conn
