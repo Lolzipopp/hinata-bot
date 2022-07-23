@@ -449,11 +449,11 @@ case prefix+'delete':
 			    }
 			    break
 			case prefix+'sewa':
-case prefix+'sewa':
 case prefix+'daftarpremium':
   case prefix+'daftarprem':
-  var teks = '
+  var teks = `
 _Yakin kamu mau daftar ke premium?_
+
 *Keuntungan :*
 - Limit Unlimited
 - Akses Fitur Premium
@@ -464,7 +464,7 @@ _Yakin kamu mau daftar ke premium?_
 *LIST DAFTAR PREMIUM*
 - 20B / 5k - Perbulan
 - 35B / 8k - Dua Bulan
-- 50B / 13k - PERMANENT`
+- 50B / 13k - PERMANENT `
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'groupriku':
