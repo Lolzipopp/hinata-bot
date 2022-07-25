@@ -443,7 +443,10 @@ case prefix+'delete':
 case prefix+'mm':
   case prefix+'mmriku':
   var teks = `_Mau MM sama riku?_
-
+  
+  CHAT RIKU👇👇
+  wa.me/6287873985625
+  
 *Trusted 100%*
 [ 💸 ] PRICE MM!! [ 💸 ]
 
@@ -480,10 +483,6 @@ case prefix+'mm':
 1300 - 1500 = 140
 1500+          = 150
 `
-var gom = [
-			{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
-			{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
-			]
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'owner':
