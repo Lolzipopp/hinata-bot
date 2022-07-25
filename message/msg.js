@@ -481,9 +481,10 @@ case prefix+'mm':
 1500+          = 150
 `
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
+			var mmcuy = [
 			{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
 			{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
-			
+			]
 			    break
 			case prefix+'owner':
 			case prefix+'riku':
