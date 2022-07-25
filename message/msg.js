@@ -480,23 +480,23 @@ case prefix+'mm':
 1300 - 1500 = 140
 1500+          = 150
 `
-			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
-			var mmcuy = [
+var gom = [
 			{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
 			{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
 			]
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'owner':
 			case prefix+'riku':
 			    for (let x of ownerNumber) {
 			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Riku Store', msg)
 			    }
-			    /*conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
+			    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 			    var owncuy = [
 			{ quickReplyButton: { displayText: `♨️ Instagram`, id: `${prefix}igowner` } },
 			{ quickReplyButton: { displayText: `🌐 TikTok`, id: `${prefix}ttowner` } },
 		]
-		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
+		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Riku Store`, mentions: [sender]} )
 			    break
 			case prefix+'igowner':
  reply(`INSTAGRAM OWNER : @tokoriku_\nLINK : https://instagram.com/tokoriku_`)
