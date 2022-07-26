@@ -498,7 +498,7 @@ var button5 = [
 			    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 			    var owncuy = [
 			{ quickReplyButton: { displayText: `♨️ Instagram`, id: `${prefix}igowner` } },
-			{ quickReplyButton: { displayText: `🌐 TikTok`, id: `${prefix}ttowner` } },
+			{ quickReplyButton: { displayText: `🌐 TikTok`, id: `${prefix}groupriku` } },
 		]
 		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Riku Store`, mentions: [sender]} )
 			    break
@@ -529,7 +529,7 @@ const button15 = [
 		{ urlButton: { displayText: `𝘐𝘕𝘚𝘛𝘈𝘎𝘙𝘈𝘔`, url : `https://www.instagram.com/tokoriku_` } },
 		{ urlButton: { displayText: `TIKTOK`, url : `https://vt.tiktok.com/ZSd1dp3jb` } },
 		{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
-		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
+		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}groupriku` } },
 		]
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button15, footer: 'RIKU-MD', mentions: [sender] })
 			    break
