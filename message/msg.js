@@ -486,8 +486,12 @@ case prefix+'mm':
 900 - 1100   = 100
 1100 - 1300 = 120
 1300 - 1500 = 140
-1500+          = 150
-`
+1500+          = 150`
+var button5 = [
+		{ urlButton: { displayText: `𝘐𝘕𝘚𝘛𝘈𝘎𝘙𝘈𝘔`, url : `https://www.instagram.com/tokoriku_` } },
+		{ urlButton: { displayText: `TIKTOK`, url : `https://vt.tiktok.com/ZSd1dp3jb` } },
+		{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
+		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'owner':
@@ -525,7 +529,12 @@ case prefix+'daftarpremium':
 - 20B / 5k - Perbulan
 - 35B / 8k - Dua Bulan
 - 50B / 13k - PERMANENT `
-			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
+const button15 = [
+		{ urlButton: { displayText: `𝘐𝘕𝘚𝘛𝘈𝘎𝘙𝘈𝘔`, url : `https://www.instagram.com/tokoriku_` } },
+		{ urlButton: { displayText: `TIKTOK`, url : `https://vt.tiktok.com/ZSd1dp3jb` } },
+		{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
+		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button15, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'groupriku':
   reply("Group All Game\nhttps://chat.whatsapp.com/Dy8hlfp2C3D3sGYXM67LUI\n\n\Group PSX\nhttps://chat.whatsapp.com/KeMULYfNy4L0DJ9IOgvqqp\n\n\Group CS\nhttps://chat.whatsapp.com/EcQpifklI5TJvUAKfuMdWL\n\n\Group WFS\nhttps://chat.whatsapp.com/CYeWz7KjIQnHv3aIqvSNas\n\n\Group BF\nhttps://chat.whatsapp.com/KxIsDw6WL3eKg2y5aI6N2E\n\n\Group MS2\nhttps://chat.whatsapp.com/E4i4CL2oyUq3oTwLzmwFj7\n\n\Group STK\nhttps://chat.whatsapp.com/DF7cdLPlduuK902CkpWb5M\n\n\Bot Clash\nhttps://chat.whatsapp.com/CDEaUgQ0y3Q1LFXkUS6AXL\n\n\Group King Legacy\nhttps://chat.whatsapp.com/IIwCQe3gMlf0lEkWbHDfqT\n\n\Group Sword Sim\nhttps://chat.whatsapp.com/EL2tLJ15iQhBEnmhsbaNUm")
@@ -845,6 +854,9 @@ limitAdd(sender, limit)
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/groupriku`, buttonText: { displayText: "GROUPRIKU" }, type: 1 }]
 conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^", buttons: but, footer: "Lihat Lebih Di Menu", templateButtons: but }, {quoted: msg})
+			}
+			if (!isGroup && isCmd) {
+				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
 			}
 		}
 	} catch (err) {
