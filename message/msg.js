@@ -233,11 +233,6 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 			{ quickReplyButton: { displayText: `🧑 GroupRiku`, id: `${prefix}groupriku` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } }
 		]
-		const button5 = [
-		{ urlButton: { displayText: `𝘐𝘕𝘚𝘛𝘈𝘎𝘙𝘈𝘔`, url : `https://www.instagram.com/tokoriku_` } },
-		{ urlButton: { displayText: `TIKTOK`, url : `https://vt.tiktok.com/ZSd1dp3jb` } },
-		{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
-		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
         
 		const isImage = (type == 'imageMessage')
 		const isVideo = (type == 'videoMessage')
