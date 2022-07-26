@@ -487,6 +487,7 @@ var button5 = [
 		{ urlButton: { displayText: `TIKTOK`, url : `https://vt.tiktok.com/ZSd1dp3jb` } },
 		{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
 		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
+		]
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'owner':
@@ -529,6 +530,7 @@ const button15 = [
 		{ urlButton: { displayText: `TIKTOK`, url : `https://vt.tiktok.com/ZSd1dp3jb` } },
 		{ quickReplyButton: { displayText: `💬 Chat Riku`, id: `${prefix}owner` } },
 		{ quickReplyButton: { displayText: `🌐 Group Riku`, id: `${prefix}ttowner` } },
+		]
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button15, footer: 'RIKU-MD', mentions: [sender] })
 			    break
 			case prefix+'groupriku':
