@@ -20,7 +20,7 @@ function toCommas(x) {
 }
 exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount) => {
 	return `
-✦══✿══╡RIKUBOTZ╞══✿══✦
+✦══✿══╡${setting.botName}╞══✿══✦
 ${ucapanWaktu} ${pushname !== undefined ? pushname : 'Kak'}
 ✦Library : *Baileys-MD*.
 ✦Prefix : ( ${prefix} )
@@ -34,7 +34,6 @@ ${ucapanWaktu} ${pushname !== undefined ? pushname : 'Kak'}
   
  Ada Bug? Ketik ${prefix}report Bug
  ${readmore}
- ––––––『 *SIMPLE BOT RIKU* 』––––––
 ┌───( 🌏 ) Main Menu
 │▹ ${prefix}menu
 │▹ ${prefix}owner
@@ -49,6 +48,7 @@ ${ucapanWaktu} ${pushname !== undefined ? pushname : 'Kak'}
 │▹ ${prefix}ttowner
 │▹ ${prefix}igowner
 │▹ ${prefix}midmanriku
+│▹ ${prefix}testi
 │───( ⚠️ ) Premium User
 │▹ ${prefix}daftarprem
 │▹ ${prefix}kick <@tag>
